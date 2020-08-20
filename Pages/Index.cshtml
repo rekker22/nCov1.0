@@ -1,0 +1,87 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="container">
+    <div id="mapid" style="
+           height:100%;
+           z-index: 1;
+           position: relative;">
+    </div>
+
+    <div class="overlay" style="
+            border-radius:5px;
+            height: 85px;
+            width: 85px;
+            border: 2px solid #BCBAB7;
+            z-index:2;
+            background-color: #FFFFFF;
+            position: absolute;
+            bottom:15px;
+            left:15px">
+
+    </div>
+    <div class="search" style="
+            border-radius:5px;
+            height:50px;
+            width:375px;
+            border: 2px solid #BCBAB7;
+            z-index:3;
+            background-color:#FFFFFF;
+            position:absolute;
+            top:15px;
+            right:15px">
+        <input type="text" id="searchEntry" style="
+                height:40px;
+                width:300px;
+                z-index:4;
+                top:2px;
+                left:2px;
+                object-position:left;
+                position:absolute;
+                font-size:20px;
+                box-shadow:none;
+                ">
+        <button style="
+                height: 45px;
+                top:2px;
+                right:2px;
+                object-position:right;
+                position: absolute;" onclick="myFunction()">
+            Search
+        </button>
+    </div>
+</div>
+<script>
+    var coordinates = [22.768189, 88.397863];
+    var zoom = 5;
+    var mymap = L.map('mapid').setView(coordinates, zoom);
+     L.tileLayer('https://{s}.tiles.mapbox.com/v4/openstreetmap.1b68f018/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib3NtLWluIiwiYSI6ImNqcnVxMTNrNTJwbHc0M250anUyOW81MjgifQ.cZnvZEyWT5AzNeO3ajg5tg', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+     }).addTo(mymap);
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            var myArr = JSON.parse(this.responseText);
+            var heat = L.heatLayer(myArr, { radius: 25 }
+            ).addTo(mymap);
+        }
+    };
+    xhttp.open("GET", "api/ncsdget", true);
+    xhttp.send();
+
+
+    async function myFunction() {
+        const response = await fetch('@Model.url' + document.getElementById("searchEntry").value.split(" ").join('+') + "+India" + '@Model.key');
+        const data = await response.json();
+        console.log(data);
+        coordinates = [data.features[0].center[1], data.features[0].center[0]];
+        mymap.setView(coordinates, zoom);
+        mymap.fitBounds([
+            [data.features[0].bbox[1], data.features[0].bbox[0]],
+            [data.features[0].bbox[3], data.features[0].bbox[2]]
+        ]);
+    }
+</script>
