@@ -22,7 +22,7 @@ namespace nCov1._0
         {
             services.AddRazorPages();
             services.AddControllers();
-            services.AddDbContext<nCov10Context>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=nCov1.0;Integrated Security=True"));
+            services.AddDbContext<nCov10Context>(options => options.UseSqlServer("postgres://siibzavmbznqqm:c8e4110b3865dc1905fc5e46f89bb4750949a93d22c21d7fb1e2b4f9ee717273@ec2-54-236-146-234.compute-1.amazonaws.com:5432/d7fc8s8j7apj77"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
