@@ -141,8 +141,6 @@ E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Re
 E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.Design.dll
 E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\nCov1.0.csprojAssemblyReference.cache
-E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\nCov1.0.csproj.CoreCompileInputs.cache
-E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\nCov1.0.MvcApplicationPartsAssemblyInfo.cache
 E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
 E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Sqlite.dll
@@ -164,3 +162,13 @@ E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\e_sqlite
 E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
 E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\Npgsql.dll
+E:\WPF_projects\nCov1.0\bin\Debug\netcoreapp3.1\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\nCov1.0.csproj.CoreCompileInputs.cache
+E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\nCov1.0.MvcApplicationPartsAssemblyInfo.cache
