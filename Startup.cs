@@ -61,6 +61,7 @@ namespace nCov1._0
                 // or from the environment variable from Heroku, use it to set up your DbContext.
                 options.UseNpgsql(connStr);
             });
+            //services.AddDbContext<nCov10Context>(options => options.UseSqlServer("postgres://siibzavmbznqqm:c8e4110b3865dc1905fc5e46f89bb4750949a93d22c21d7fb1e2b4f9ee717273@ec2-54-236-146-234.compute-1.amazonaws.com:5432/d7fc8s8j7apj77"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +73,7 @@ namespace nCov1._0
             }
             else
             {
+                app.UseDeveloperExceptionPage();
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();

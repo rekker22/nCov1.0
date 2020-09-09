@@ -128,7 +128,7 @@ namespace nCov1._0.Controllers
                                             //ncsd.SdCode = i.ToString();
                                             ncsd.DName = dD.district;
                                             ncsd.TotalCases = dD.confirmed;
-                                            _context.NCovStateData.Add(ncsd);
+                                            await _context.NCovStateData.AddAsync(ncsd);
                                         }
                                         else
                                         {
