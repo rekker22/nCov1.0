@@ -20,7 +20,14 @@
             position: absolute;
             bottom:15px;
             left:15px">
-
+        <img id="heatmapButton" src="/placewithoutheatmap.jpg"
+             style="
+                position: absolute; 
+                height:100%;
+                width:100%;
+                border:none;
+                box-shadow:none;
+                " onclick="heatmaponoffchange() "/>
     </div>
     <div class="search" style="
             border-radius:5px;
@@ -37,7 +44,7 @@
                 width:225px;
                 z-index:4;
                 top:2px;
-                left:2px;
+                left:5px;
                 object-position:left;
                 position:absolute;
                 font-size:20px;
@@ -57,23 +64,40 @@
 <script>
     //var coordinates = [22.768189, 88.397863];
     var coordinates = [22.944877, 81.075196];
+    var heatmaponoff = true;
     var zoom = 4;
+    var myArr = [];
     var mymap = L.map('mapid').setView(coordinates, zoom);
      L.tileLayer('https://{s}.tiles.mapbox.com/v4/openstreetmap.1b68f018/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib3NtLWluIiwiYSI6ImNqcnVxMTNrNTJwbHc0M250anUyOW81MjgifQ.cZnvZEyWT5AzNeO3ajg5tg', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
      }).addTo(mymap);
+    var heat = L.heatLayer(myArr, { radius: 25 }
+    ).addTo(mymap);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
-            var myArr = JSON.parse(this.responseText);
-            var heat = L.heatLayer(myArr, { radius: 25 }
+            //console.log(this.responseText);
+            myArr = JSON.parse(this.responseText);
+            heat = L.heatLayer(myArr, { radius: 25 }
             ).addTo(mymap);
         }
     };
     xhttp.open("GET", "api/ncsdget", true);
     xhttp.send();
 
+    async function heatmaponoffchange() {
+        if (heatmaponoff == false) {
+            heatmaponoff = true;
+            heat = L.heatLayer(myArr, { radius: 25 }
+            ).addTo(mymap);
+            document.getElementById("heatmapButton").src = "/placewithoutheatmap.jpg"; 
+        }
+        else {
+            heatmaponoff = false;
+            mymap.removeLayer(heat);
+            document.getElementById("heatmapButton").src = "/placewithheatmap.jpg";
+        }
+    }
 
     async function myFunction() {
         const response = await fetch('@Model.url' + document.getElementById("searchEntry").value.split(" ").join('+') + "+India" + '@Model.key');

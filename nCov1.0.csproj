@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="TextFile.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="nCov1.0.sln" />
   </ItemGroup>
 
