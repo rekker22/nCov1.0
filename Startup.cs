@@ -21,7 +21,7 @@ namespace nCov1._0
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddControllers();
             //services.AddDbContext<nCov10Context>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=nCov1.0;Integrated Security=True"));
             //services.AddDbContext<nCov10Context>(options => options.UseNpgsql("Server=192.168.99.100;Port=5432;User Id=username;Password=secret;Database=todos;"));
@@ -36,7 +36,9 @@ namespace nCov1._0
                 if (env == "Development")
                 {
                     // Use connection string from file.
-                    connStr = "Server=192.168.99.100;Port=5432;User Id=username;Password=secret;Database=todos;";
+                    //connStr = "Server=192.168.99.100;Port=5432;User Id=username;Password=secret;Database=todos;";
+                    connStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=nCov1.0;Integrated Security=True";
+                    options.UseSqlServer(connStr);
                 }
                 else
                 {
@@ -45,7 +47,7 @@ namespace nCov1._0
 
                     // Parse connection URL to connection string for Npgsql
                     connUrl = connUrl.Replace("postgres://", string.Empty);
-                    var pgUserPass = connUrl.Split("@")[0];
+                    var pgUserPass = connUrl.Split("@")[0]; 
                     var pgHostPortDb = connUrl.Split("@")[1];
                     var pgHostPort = pgHostPortDb.Split("/")[0];
                     var pgDb = pgHostPortDb.Split("/")[1];
@@ -55,11 +57,14 @@ namespace nCov1._0
                     var pgPort = pgHostPort.Split(":")[1];
 
                     connStr = $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb}";
+                    Console.WriteLine(connStr);
+                    options.UseNpgsql(connStr);
                 }
 
                 // Whether the connection string came from the local development configuration file
                 // or from the environment variable from Heroku, use it to set up your DbContext.
-                options.UseNpgsql(connStr);
+                //options.UseNpgsql(connStr);
+                //options.UseSqlServer(connStr);
             });
             //services.AddDbContext<nCov10Context>(options => options.UseSqlServer("postgres://siibzavmbznqqm:c8e4110b3865dc1905fc5e46f89bb4750949a93d22c21d7fb1e2b4f9ee717273@ec2-54-236-146-234.compute-1.amazonaws.com:5432/d7fc8s8j7apj77"));
         }
@@ -73,7 +78,7 @@ namespace nCov1._0
             }
             else
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();

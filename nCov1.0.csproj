@@ -6,13 +6,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="bin\**" />
     <Compile Remove="Migrations\**" />
+    <Compile Remove="obj\**" />
+    <Content Remove="bin\**" />
     <Content Remove="Migrations\**" />
+    <Content Remove="obj\**" />
+    <EmbeddedResource Remove="bin\**" />
     <EmbeddedResource Remove="Migrations\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="bin\**" />
     <None Remove="Migrations\**" />
+    <None Remove="obj\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="nCov1.0.sln" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />

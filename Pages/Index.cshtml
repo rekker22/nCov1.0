@@ -25,16 +25,16 @@
     <div class="search" style="
             border-radius:5px;
             height:50px;
-            width:375px;
+            width:300px;
             border: 2px solid #BCBAB7;
             z-index:3;
             background-color:#FFFFFF;
-            position:absolute;
+            position:fixed;
             top:15px;
-            right:15px">
+            right:1px">
         <input type="text" id="searchEntry" style="
                 height:40px;
-                width:300px;
+                width:225px;
                 z-index:4;
                 top:2px;
                 left:2px;
@@ -42,6 +42,7 @@
                 position:absolute;
                 font-size:20px;
                 box-shadow:none;
+                border:none;
                 ">
         <button style="
                 height: 45px;
@@ -54,8 +55,9 @@
     </div>
 </div>
 <script>
-    var coordinates = [22.768189, 88.397863];
-    var zoom = 5;
+    //var coordinates = [22.768189, 88.397863];
+    var coordinates = [22.944877, 81.075196];
+    var zoom = 4;
     var mymap = L.map('mapid').setView(coordinates, zoom);
      L.tileLayer('https://{s}.tiles.mapbox.com/v4/openstreetmap.1b68f018/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib3NtLWluIiwiYSI6ImNqcnVxMTNrNTJwbHc0M250anUyOW81MjgifQ.cZnvZEyWT5AzNeO3ajg5tg', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
