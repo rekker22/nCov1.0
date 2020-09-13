@@ -108,14 +108,14 @@
     async function heatmaponoffchange() {
         if (heatmaponoff == false) {
             heatmaponoff = true;
-            heat = L.heatLayer(myArr, { radius: 100 }
+            heat = L.heatLayer(myArr, { radius: 25 }
             ).addTo(mymap);
-            document.getElementById("heatmapButton").src = "/placewithoutheatmap.jpg"; 
+            document.getElementById("heatmapButton").src = "https://1.bp.blogspot.com/-_t_IxPhAtQU/X154biSv8uI/AAAAAAAAHwo/cJ7DGF7wXOgv9axNkpSyP860-ScG6o3GACLcBGAsYHQ/s685/placewithoutheatmap.JPG"; 
         }
         else {
             heatmaponoff = false;
             mymap.removeLayer(heat);
-            document.getElementById("heatmapButton").src = "/placewithheatmap.jpg";
+            document.getElementById("heatmapButton").src = "https://1.bp.blogspot.com/-OejNjOgW-sA/X154bvCk9-I/AAAAAAAAHwk/7QyX2yClkpA2hmNDi83R6P-j3TipmWgOACLcBGAsYHQ/s686-rw/placewithheatmap.JPG";
         }
     }
 
