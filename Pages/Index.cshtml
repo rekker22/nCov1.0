@@ -122,7 +122,7 @@
     async function myFunction() {
         const response = await fetch('@Model.url' + document.getElementById("searchEntry").value.split(" ").join('+') + "+India" + '@Model.key');
         const data = await response.json();
-        //console.log(data);
+        console.log(data);
         coordinates = [data.features[0].center[1], data.features[0].center[0]];
         mymap.setView(coordinates, zoom);
         mymap.fitBounds([
@@ -142,7 +142,7 @@
                         var myarr = JSON.parse(this.responseText);
                         for (var d in myarr) {
                             if (myarr[d].dName == district) {
-                                document.getElementById("totalcases").innerHTML = district + " has total " + myarr[d].totalCases + " COVID cases are ";
+                                document.getElementById("totalcases").innerHTML = district + " has total " + myarr[d].totalCases + " COVID cases.";
                                 break;
                             }
                         }
