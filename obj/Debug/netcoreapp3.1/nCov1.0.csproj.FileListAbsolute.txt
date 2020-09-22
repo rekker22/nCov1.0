@@ -20,7 +20,6 @@ E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\nCov1.0.TagHelpers.output.cache
 E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\nCov1.0.RazorCoreGenerate.cache
 E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
 E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
-E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\Razor\Pages\Privacy.cshtml.g.cs
 E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
 E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
 E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs

@@ -4,80 +4,23 @@
     ViewData["Title"] = "Home";
 }
 <div class="container">
-    <div id="mapid" style="
-           height:100%;
-           z-index: 1;
-           position: relative;">
+    <div class="mapid" id="mapid" style="">
     </div>
 
-    <div class="overlay" style="
-            border-radius:5px;
-            height: 85px;
-            width: 85px;
-            border: 2px solid #BCBAB7;
-            z-index:2;
-            background-color: #FFFFFF;
-            position: absolute;
-            bottom:15px;
-            left:15px">
+    <div class="overlay" style="">
         <img id="heatmapButton" src="/placewithoutheatmap.jpg"
-             style="
-                position: absolute;
-                height:100%;
-                width:100%;
-                border:none;
-                box-shadow:none;" 
-                onclick="heatmaponoffchange()" />
+             style=""
+             onclick="heatmaponoffchange()" />
     </div>
-    <div class="search" style="        
-        border-radius: 5px 5px 0px 0px;
-        height: 50px;
-        width: 300px;
-        border-style: solid;
-        border-width: 2px 2px 0px 2px;
-        border-color:#BCBAB7; 
-        z-index: 3;
-        background-color: #FFFFFF;
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        box-shadow: 20px;">
-        <input type="text" id="searchEntry" style="
-                height:40px;
-                width:225px;
-                top:2px;
-                left:5px;
-                object-position:left;
-                position:absolute;
-                font-size:20px;
-                box-shadow:none;
-                border:none;
-                ">
-        <button style="
-                height: 45px;
-                top:2px;
-                right:2px;
-                object-position:right;
-                position: absolute;" onclick="myFunction()">
+    <div class="search" style="">
+        <input type="text" id="searchEntry" style="">
+        <button class="searchbtn" style="" onclick="myFunction()">
             Search
         </button>
     </div>
-    <div id="Data" class="dropdown" style="
-        height: 37px;
-        width: 300px;
-        top: 60px;
-        right: 10px;
-        z-index: 3;
-        position: absolute;
-        display:block;
-        background-color: #FFFFFF;
-        border-color: #BCBAB7;
-        border-style:solid;
-        border-width: 1px 2px 2px 2px;
-        border-radius:0px 0px 5px 5px;
-        text-align:center;">
-        <label id="totalcases" style="padding: inherit">
-                Total Cases
+    <div id="Data" class="dropdown" style="">
+        <label id="totalcases" style="">
+            Total Cases
         </label>
 
     </div>
@@ -110,7 +53,7 @@
             heatmaponoff = true;
             heat = L.heatLayer(myArr, { radius: 25 }
             ).addTo(mymap);
-            document.getElementById("heatmapButton").src = "https://1.bp.blogspot.com/-_t_IxPhAtQU/X154biSv8uI/AAAAAAAAHwo/cJ7DGF7wXOgv9axNkpSyP860-ScG6o3GACLcBGAsYHQ/s685/placewithoutheatmap.JPG"; 
+            document.getElementById("heatmapButton").src = "https://1.bp.blogspot.com/-_t_IxPhAtQU/X154biSv8uI/AAAAAAAAHwo/cJ7DGF7wXOgv9axNkpSyP860-ScG6o3GACLcBGAsYHQ/s685-rw/placewithoutheatmap.JPG";
         }
         else {
             heatmaponoff = false;
@@ -122,7 +65,7 @@
     async function myFunction() {
         const response = await fetch('@Model.url' + document.getElementById("searchEntry").value.split(" ").join('+') + "+India" + '@Model.key');
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
         coordinates = [data.features[0].center[1], data.features[0].center[0]];
         mymap.setView(coordinates, zoom);
         mymap.fitBounds([
@@ -132,7 +75,7 @@
 
         //console.log(data.features[0].context);
         for (var i in data.features[0].context) {
-            if (data.features[0].context[i].id.split(".")[0] == "district") 
+            if (data.features[0].context[i].id.split(".")[0] == "district")
             {
                 var district = data.features[0].context[i].text;
                 var xhttp = new XMLHttpRequest();
