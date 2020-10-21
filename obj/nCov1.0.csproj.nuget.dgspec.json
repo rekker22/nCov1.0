@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\WPF_projects\\nCov1.0\\nCov1.0.csproj": {}
+    "E:\\asp.net\\nCov1.0\\nCov1.0.csproj": {}
   },
   "projects": {
-    "E:\\WPF_projects\\nCov1.0\\nCov1.0.csproj": {
+    "E:\\asp.net\\nCov1.0\\nCov1.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\WPF_projects\\nCov1.0\\nCov1.0.csproj",
+        "projectUniqueName": "E:\\asp.net\\nCov1.0\\nCov1.0.csproj",
         "projectName": "nCov1.0",
-        "projectPath": "E:\\WPF_projects\\nCov1.0\\nCov1.0.csproj",
+        "projectPath": "E:\\asp.net\\nCov1.0\\nCov1.0.csproj",
         "packagesPath": "C:\\Users\\123\\.nuget\\packages\\",
-        "outputPath": "E:\\WPF_projects\\nCov1.0\\obj\\",
+        "outputPath": "E:\\asp.net\\nCov1.0\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -70,6 +70,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[3.1.4, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[4.7.0, )"
             }
           },
           "imports": [
@@ -90,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

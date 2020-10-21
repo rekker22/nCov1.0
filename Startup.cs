@@ -23,7 +23,7 @@ namespace nCov1._0
         {
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddControllers();
-            services.AddEntityFrameworkNpgsql().AddDbContext<nCov10Context>(options =>
+            services.AddDbContextPool<nCov10Context>(options =>
             {
                 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
@@ -33,8 +33,8 @@ namespace nCov1._0
                 // connection string, or development connection string from env var.
                 if (env == "Development")
                 {
-                    connStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=nCov1.0;Integrated Security=True";
-                    options.UseSqlServer(connStr);
+                        connStr = Configuration.GetConnectionString("DefaultConnection");
+                        options.UseSqlServer(connStr);
                 }
                 else
                 {

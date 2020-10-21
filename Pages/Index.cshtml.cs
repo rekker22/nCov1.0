@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 using nCov1._0.Models;
 using Newtonsoft.Json;
 
@@ -17,57 +18,59 @@ namespace nCov1._0.Pages
     {
         private nCov10Context _context { get; set; }
         private readonly ILogger<IndexModel> _logger;
+        private IConfiguration _configuration;
 
-        public IndexModel(ILogger<IndexModel> logger, nCov10Context context)
+        public IndexModel(ILogger<IndexModel> logger, nCov10Context context, IConfiguration Configuration)
         {
             _logger = logger;
             _context = context;
+            _configuration = Configuration;
         }
         public string url = "https://api.mapbox.com/geocoding/v5/mapbox.places/";
         public string key = ".json?access_token=pk.eyJ1IjoicmVra2VyMjIiLCJhIjoiY2tjMXgzZTBmMWY5NDMwbjR2dzM0YjN3aiJ9.7l8XoNMK16WzYeYlE9mahQ";
-        string todaysdate = "22-09-2020";
 
         public async Task OnGet()
         {
-            //if(DateTime.UtcNow.ToString("d") != todaysdate)
-            //{
-            //    todaysdate = DateTime.UtcNow.ToString("d");
-            //    try
-            //    {
-            //        string json = new WebClient().DownloadString("https://api.covid19india.org/v2/state_district_wise.json");
-            //        List<stateData> stateDatas = JsonConvert.DeserializeObject<List<stateData>>(json);
-            //        List<NCovStateData> ncovlist = _context.NCovStateData.ToList();
-            //        List<string> badDistrict = new List<string>() { "Unassigned", "Unknown", "Foreign Evacuees", "Other State", "Airport Quarantine" };
-            //        List<string> NoDistrict = new List<string>();
-            //        foreach (stateData item in stateDatas)
-            //        {
-            //            if (item.state != "State Unassigned")
-            //            {
-            //                foreach (Districtdata dD in item.districtData)
-            //                {
-            //                    if (!badDistrict.Contains(dD.district))
-            //                    {
-            //                        var result = _context.NCovStateData.SingleOrDefault(b => b.SdCode == (item.stateCode + "_" + dD.district));
-            //                        if (result != null)
-            //                        {
-            //                            result.TotalCases = dD.confirmed;
-            //                        }
+            string todaysdate = _configuration["LastUpdateDate"];
+            
+            if (DateTime.UtcNow.ToString("d") != todaysdate)
+            {
+                todaysdate = DateTime.UtcNow.ToString("d");
+                _configuration["LastUpdateDate"] = DateTime.UtcNow.ToString("d");
+                try
+                {
+                    HttpClient client = new HttpClient();
+                    var responseString = await client.GetStringAsync("https://api.covid19india.org/v2/state_district_wise.json");
+                    List<NCovStateData> ncovlist = _context.NCovStateData.ToList();
+                    List<stateData> stateDatas = JsonConvert.DeserializeObject<List<stateData>>(responseString);
+                    List<string> badDistrict = new List<string>() { "Unassigned", "Unknown", "Foreign Evacuees", "Other State", "Airport Quarantine" };
+                    foreach (stateData item in stateDatas)
+                    {
+                        if (item.state != "State Unassigned")
+                        {
+                            foreach (Districtdata dD in item.districtData)
+                            {
+                                if (!badDistrict.Contains(dD.district))
+                                {
+                                    var result = _context.NCovStateData.SingleOrDefault(b => b.SdCode == (item.stateCode + "_" + dD.district));
+                                    if (result != null)
+                                    {
+                                        result.TotalCases = dD.confirmed;
+                                    }
 
-            //                    }
-            //                    await _context.SaveChangesAsync();
+                                }
+                                //await _context.SaveChangesAsync();
+                            }
+                        }
+                    }
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException)
+                {
+                    throw;
+                }
 
-            //                }
-            //            }
-            //        }
-            //        await _context.SaveChangesAsync();
-            //    }
-            //    catch (DbUpdateException)
-            //    {
-            //        throw;
-            //    }
-
-                
-            //}
+            }
 
         }
     }

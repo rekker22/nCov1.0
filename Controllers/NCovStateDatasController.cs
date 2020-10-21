@@ -89,7 +89,6 @@ namespace nCov1._0.Controllers
                 List<stateData> stateDatas = JsonConvert.DeserializeObject<List<stateData>>(json);
                 //dynamic d = JObject.Parse(json);
                 //await _context.SaveChangesAsync();
-                int i = 0;
                 List<string> badDistrict = new List<string>() { "Unassigned", "Unknown", "Foreign Evacuees", "Other State", "Airport Quarantine" };
                 List<string> NoDistrict = new List<string>();
                 foreach (stateData item in stateDatas)
@@ -175,7 +174,6 @@ namespace nCov1._0.Controllers
                 //await _context.SaveChangesAsync();
                 List<NCovStateData> ncovlist = _context.NCovStateData.ToList();
                 List<string> badDistrict = new List<string>() { "Unassigned", "Unknown", "Foreign Evacuees", "Other State", "Airport Quarantine" };
-                List<string> NoDistrict = new List<string>();
                 foreach (stateData item in stateDatas)
                 {
                     if (item.state != "State Unassigned")

@@ -8,7 +8,7 @@
     </div>
 
     <div class="overlay" style="">
-        <img id="heatmapButton" src="/placewithoutheatmap.jpg"
+        <img id="heatmapButton" src="~/"
              style=""
              onclick="heatmaponoffchange()" />
     </div>
@@ -25,7 +25,8 @@
 
     </div>
 </div>
-<script>
+<script src="~/js/site.js"></script>
+@*<script>
     var coordinates = [22.944877, 81.075196];
     var heatmaponoff = true;
     var zoom = 4;
@@ -34,8 +35,7 @@
      L.tileLayer('https://{s}.tiles.mapbox.com/v4/openstreetmap.1b68f018/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib3NtLWluIiwiYSI6ImNqcnVxMTNrNTJwbHc0M250anUyOW81MjgifQ.cZnvZEyWT5AzNeO3ajg5tg', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
      }).addTo(mymap);
-    var heat = L.heatLayer(myArr, { radius: 25 }
-    ).addTo(mymap);
+    var heat = L.heatLayer(myArr, { radius: 25 }).addTo(mymap);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -100,4 +100,4 @@
 
 
     }
-</script>
+</script>*@
