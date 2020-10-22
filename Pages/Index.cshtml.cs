@@ -32,15 +32,34 @@ namespace nCov1._0.Pages
 
         public async Task OnGet()
         {
+            var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            var todaysdate = "";
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
-            //xmlDoc.Load("LastupdateDatabase.xml");
-            XmlNode todaysdate = xmlDoc.SelectSingleNode("date");
+            if (env == "Development")
+            {
+                xmlDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
+                //xmlDoc.Load("LastupdateDatabase.xml");
+                todaysdate = xmlDoc.SelectSingleNode("date").InnerText;
+            }
+            if(env != "Development")
+            {
+                xmlDoc.Load(@"/app/heroku_output/LastupdateDatabase.xml");
+                //xmlDoc.Load("LastupdateDatabase.xml");
+                todaysdate = xmlDoc.SelectSingleNode("date").InnerText;
+            }
 
-            if (DateTime.UtcNow.ToString("d") != todaysdate.InnerText)
+            if (DateTime.UtcNow.ToString("d") != todaysdate)
             {
                 xmlDoc.SelectSingleNode("date").InnerText = DateTime.UtcNow.ToString("d");
-                xmlDoc.Save(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
+                if (env == "Development")
+                {
+                    xmlDoc.Save(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
+                }
+                if (env != "Development")
+                {
+                    xmlDoc.Save((@"/app/heroku_output/LastupdateDatabase.xml");
+                }
+                
                 //_configuration["LastUpdateDate"] = DateTime.UtcNow.ToString("d");
                 try
                 {
