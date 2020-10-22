@@ -50,7 +50,9 @@ namespace nCov1._0.Pages
             if (DateTime.UtcNow.ToString("d") != todaysdate)
             {
                 xmlDoc.SelectSingleNode("date").InnerText = DateTime.UtcNow.ToString("d");
+
                 xmlDoc.Save(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
+                
                 try
                 {
                     HttpClient client = new HttpClient();
