@@ -46,7 +46,6 @@ namespace nCov1._0.Pages
                 todaysdate = xmlDoc.SelectSingleNode("date").InnerText;
             }
 
-
             if (DateTime.UtcNow.ToString("d") != todaysdate)
             {
                 xmlDoc.SelectSingleNode("date").InnerText = DateTime.UtcNow.ToString("d");
