@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using nCov1._0.Models;
 using Newtonsoft.Json;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace nCov1._0.Pages
 {
@@ -32,35 +33,24 @@ namespace nCov1._0.Pages
 
         public async Task OnGet()
         {
-            var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             var todaysdate = "";
             XmlDocument xmlDoc = new XmlDocument();
-            if (env == "Development")
+            try
             {
                 xmlDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
-                //xmlDoc.Load("LastupdateDatabase.xml");
-                todaysdate = xmlDoc.SelectSingleNode("date").InnerText;
             }
-            if(env != "Development")
+            catch (Exception)
             {
-                xmlDoc.Load(@"/app/heroku_output/LastupdateDatabase.xml");
-                //xmlDoc.Load("LastupdateDatabase.xml");
+                new XDocument(new XElement("date", "21-10-20")).Save(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml"); ;
+                xmlDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
                 todaysdate = xmlDoc.SelectSingleNode("date").InnerText;
             }
+
 
             if (DateTime.UtcNow.ToString("d") != todaysdate)
             {
                 xmlDoc.SelectSingleNode("date").InnerText = DateTime.UtcNow.ToString("d");
-                if (env == "Development")
-                {
-                    xmlDoc.Save(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
-                }
-                if (env != "Development")
-                {
-                    xmlDoc.Save((@"/app/heroku_output/LastupdateDatabase.xml");
-                }
-                
-                //_configuration["LastUpdateDate"] = DateTime.UtcNow.ToString("d");
+                xmlDoc.Save(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
                 try
                 {
                     HttpClient client = new HttpClient();
