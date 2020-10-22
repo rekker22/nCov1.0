@@ -57,7 +57,7 @@ namespace nCov1._0.Pages
                 }
                 if (env != "Development")
                 {
-                    xmlDoc.Save((@"/app/heroku_output/LastupdateDatabase.xml");
+                    xmlDoc.Save(@"/app/heroku_output/LastupdateDatabase.xml");
                 }
                 
                 //_configuration["LastUpdateDate"] = DateTime.UtcNow.ToString("d");
