@@ -20,16 +20,12 @@ namespace nCov1._0.Pages
     {
         private nCov10Context _context { get; set; }
         private readonly ILogger<IndexModel> _logger;
-        private IConfiguration _configuration;
 
         public IndexModel(ILogger<IndexModel> logger, nCov10Context context, IConfiguration Configuration)
         {
             _logger = logger;
             _context = context;
-            _configuration = Configuration;
         }
-        public string url = "https://api.mapbox.com/geocoding/v5/mapbox.places/";
-        public string key = ".json?access_token=pk.eyJ1IjoicmVra2VyMjIiLCJhIjoiY2tjMXgzZTBmMWY5NDMwbjR2dzM0YjN3aiJ9.7l8XoNMK16WzYeYlE9mahQ";
 
         public async Task OnGet()
         {
