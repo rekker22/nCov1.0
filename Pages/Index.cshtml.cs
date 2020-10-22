@@ -41,7 +41,7 @@ namespace nCov1._0.Pages
             }
             catch (Exception)
             {
-                new XDocument(new XElement("date", "21-10-20")).Save(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml"); ;
+                new XDocument(new XElement("date", "21-10-20")).Save(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
                 xmlDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
                 todaysdate = xmlDoc.SelectSingleNode("date").InnerText;
             }
@@ -49,9 +49,7 @@ namespace nCov1._0.Pages
             if (DateTime.UtcNow.ToString("d") != todaysdate)
             {
                 xmlDoc.SelectSingleNode("date").InnerText = DateTime.UtcNow.ToString("d");
-
                 xmlDoc.Save(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
-                
                 try
                 {
                     HttpClient client = new HttpClient();
