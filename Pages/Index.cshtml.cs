@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using nCov1._0.Models;
 using Newtonsoft.Json;
+using System.Xml;
 
 namespace nCov1._0.Pages
 {
@@ -31,12 +32,15 @@ namespace nCov1._0.Pages
 
         public async Task OnGet()
         {
-            string todaysdate = _configuration["LastUpdateDate"];
-            
-            if (DateTime.UtcNow.ToString("d") != todaysdate)
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load("LastupdateDatabase.xml");
+            XmlNode todaysdate = xmlDoc.SelectSingleNode("date");
+
+            if (DateTime.UtcNow.ToString("d") != todaysdate.InnerText)
             {
-                todaysdate = DateTime.UtcNow.ToString("d");
-                _configuration["LastUpdateDate"] = DateTime.UtcNow.ToString("d");
+                xmlDoc.SelectSingleNode("date").InnerText = DateTime.UtcNow.ToString("d");
+                xmlDoc.Save("LastupdateDatabase.xml");
+                //_configuration["LastUpdateDate"] = DateTime.UtcNow.ToString("d");
                 try
                 {
                     HttpClient client = new HttpClient();
