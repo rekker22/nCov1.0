@@ -33,13 +33,14 @@ namespace nCov1._0.Pages
         public async Task OnGet()
         {
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("LastupdateDatabase.xml");
+            xmlDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
+            //xmlDoc.Load("LastupdateDatabase.xml");
             XmlNode todaysdate = xmlDoc.SelectSingleNode("date");
 
             if (DateTime.UtcNow.ToString("d") != todaysdate.InnerText)
             {
                 xmlDoc.SelectSingleNode("date").InnerText = DateTime.UtcNow.ToString("d");
-                xmlDoc.Save("LastupdateDatabase.xml");
+                xmlDoc.Save(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
                 //_configuration["LastUpdateDate"] = DateTime.UtcNow.ToString("d");
                 try
                 {
