@@ -79,6 +79,7 @@ namespace nCov1._0
             }
 
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
