@@ -444,7 +444,6 @@ E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\nCov1.0.MvcApplicationPartsAssem
 E:\WPF_projects\nCov1.0\obj\Debug\netcoreapp3.1\nCov1.0.MvcApplicationPartsAssemblyInfo.cache
 E:\asp.net\nCov1.0\bin\Debug\netcoreapp3.1\appsettings.Development.json
 E:\asp.net\nCov1.0\bin\Debug\netcoreapp3.1\appsettings.json
-E:\asp.net\nCov1.0\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 E:\asp.net\nCov1.0\bin\Debug\netcoreapp3.1\nCov1.0.exe
 E:\asp.net\nCov1.0\bin\Debug\netcoreapp3.1\nCov1.0.deps.json
 E:\asp.net\nCov1.0\bin\Debug\netcoreapp3.1\nCov1.0.runtimeconfig.json
@@ -886,3 +885,4 @@ E:\asp.net\nCov1.0\obj\Debug\netcoreapp3.1\nCov1.0.genruntimeconfig.cache
 E:\asp.net\nCov1.0\obj\Debug\netcoreapp3.1\nCov1.0.csproj.CoreCompileInputs.cache
 E:\asp.net\nCov1.0\obj\Debug\netcoreapp3.1\nCov1.0.MvcApplicationPartsAssemblyInfo.cs
 E:\asp.net\nCov1.0\obj\Debug\netcoreapp3.1\nCov1.0.MvcApplicationPartsAssemblyInfo.cache
+E:\asp.net\nCov1.0\obj\Debug\netcoreapp3.1\scopedcss\bundle\nCov1.0.styles.css

@@ -7,7 +7,7 @@
     var zoom = 4;
     var myArr = [];
     var mymap = L.map('mapid').setView(coordinates, zoom);
-     L.tileLayer('https://{s}.tiles.mapbox.com/v4/openstreetmap.1b68f018/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib3NtLWluIiwiYSI6ImNqcnVxMTNrNTJwbHc0M250anUyOW81MjgifQ.cZnvZEyWT5AzNeO3ajg5tg', {
+     L.tileLayer('https://{s}.tiles.mapbox.com/v4/openstreetmap.1b68f018/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGFuYXNvYzkxMCIsImEiOiJja2lwcDc2YTkxbXI4MnFsYmt6ZTdodnFvIn0.eV8T27Q44S7lipFGPtJzhg', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
      }).addTo(mymap);
     var heat = L.heatLayer(myArr, {radius: 25 }).addTo(mymap);
