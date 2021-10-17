@@ -17,7 +17,7 @@ namespace nCov1._0
             // Manually run any pending migrations if configured to do so.
             var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
-            if (env == "Production")
+            if (env != "Production")
             {
                 var serviceScopeFactory = (IServiceScopeFactory)webHost.Services.GetService(typeof(IServiceScopeFactory));
 

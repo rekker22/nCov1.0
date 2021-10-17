@@ -85,7 +85,7 @@ namespace nCov1._0.Controllers
             //_context.NCovStateData.Add(nCovStateData);
             try
             {
-                string json = new WebClient().DownloadString("https://api.covid19india.org/v2/state_district_wise.json");
+                string json = new WebClient().DownloadString("https://data.covid19india.org/v2/state_district_wise.json");
                 List<stateData> stateDatas = JsonConvert.DeserializeObject<List<stateData>>(json);
                 //dynamic d = JObject.Parse(json);
                 //await _context.SaveChangesAsync();
@@ -168,7 +168,7 @@ namespace nCov1._0.Controllers
         {
             try
             {
-                string json = new WebClient().DownloadString("https://api.covid19india.org/v2/state_district_wise.json");
+                string json = new WebClient().DownloadString("https://data.covid19india.org/v2/state_district_wise.json");
                 List<stateData> stateDatas = JsonConvert.DeserializeObject<List<stateData>>(json);
                 //dynamic d = JObject.Parse(json);
                 //await _context.SaveChangesAsync();

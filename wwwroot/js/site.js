@@ -43,10 +43,15 @@ L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         //console.log(data);
         coordinates = [data.features[0].center[1], data.features[0].center[0]];
         mymap.setView(coordinates, zoom);
+        //console.log(data.features);
+        if (data.features[0].bbox == "undefined") {
+            console.log("Done");
+        }
         mymap.fitBounds([
             [data.features[0].bbox[1], data.features[0].bbox[0]],
             [data.features[0].bbox[3], data.features[0].bbox[2]]
         ]);
+        
         for (var i in data.features[0].context) {
             if (data.features[0].context[i].id.split(".")[0] == "district")
             {

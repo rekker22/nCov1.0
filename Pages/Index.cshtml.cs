@@ -34,6 +34,7 @@ namespace nCov1._0.Pages
             try
             {
                 xmlDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "LastupdateDatabase.xml");
+                todaysdate = xmlDoc.SelectSingleNode("date").InnerText;
             }
             catch (Exception)
             {
@@ -49,7 +50,7 @@ namespace nCov1._0.Pages
                 try
                 {
                     HttpClient client = new HttpClient();
-                    var responseString = await client.GetStringAsync("https://api.covid19india.org/v2/state_district_wise.json");
+                    var responseString = await client.GetStringAsync("https://data.covid19india.org/v2/state_district_wise.json");
                     List<NCovStateData> ncovlist = _context.NCovStateData.ToList();
                     List<stateData> stateDatas = JsonConvert.DeserializeObject<List<stateData>>(responseString);
                     List<string> badDistrict = new List<string>() { "Unassigned", "Unknown", "Foreign Evacuees", "Other State", "Airport Quarantine" };
