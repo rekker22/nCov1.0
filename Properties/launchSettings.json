@@ -20,6 +20,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
+        "DATABASE_URL": "postgres://csrglbqgcmextz:cc4b35212974a7b543f2cb4cd13779630b84764dfc1649831f3d59169e46bc79@ec2-3-222-11-129.compute-1.amazonaws.com:5432/dc5no3en3l3thj",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"
