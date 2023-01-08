@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "EyT4F2XT2fSnjbN9gQTWmzlpdAo7cHvAZC3s4BLzdzscfk0nRZU+/c3xAUw2LUUHdwNqpwvMnlu8uWjuY1tCcw==",
+  "dgSpecHash": "tvJ7HjtLRvbpEyrhyn8bxBSizMRfBVE1Kbu/l3JvzNAJrWeZrxz42ml+6OBJc1VUWZ+RK/7wMJjOlnvmX+9cNQ==",
   "success": true,
   "projectFilePath": "C:\\Projects\\nCov1.0\\nCov1.0.csproj",
   "expectedPackageFiles": [
@@ -50,6 +50,7 @@
     "C:\\Users\\rekker22\\.nuget\\packages\\microsoft.identitymodel.tokens\\5.6.0\\microsoft.identitymodel.tokens.5.6.0.nupkg.sha512",
     "C:\\Users\\rekker22\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\rekker22\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
+    "C:\\Users\\rekker22\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\rekker22\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\5.0.2\\microsoft.visualstudio.web.codegeneration.5.0.2.nupkg.sha512",
     "C:\\Users\\rekker22\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\5.0.2\\microsoft.visualstudio.web.codegeneration.contracts.5.0.2.nupkg.sha512",
     "C:\\Users\\rekker22\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\5.0.2\\microsoft.visualstudio.web.codegeneration.core.5.0.2.nupkg.sha512",
