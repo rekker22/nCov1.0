@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\asp.net\\nCov1.0\\nCov1.0.csproj": {}
+    "C:\\Projects\\nCov1.0\\nCov1.0.csproj": {}
   },
   "projects": {
-    "E:\\asp.net\\nCov1.0\\nCov1.0.csproj": {
+    "C:\\Projects\\nCov1.0\\nCov1.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\asp.net\\nCov1.0\\nCov1.0.csproj",
+        "projectUniqueName": "C:\\Projects\\nCov1.0\\nCov1.0.csproj",
         "projectName": "nCov1.0",
-        "projectPath": "E:\\asp.net\\nCov1.0\\nCov1.0.csproj",
-        "packagesPath": "C:\\Users\\123\\.nuget\\packages\\",
-        "outputPath": "E:\\asp.net\\nCov1.0\\obj\\",
+        "projectPath": "C:\\Projects\\nCov1.0\\nCov1.0.csproj",
+        "packagesPath": "C:\\Users\\rekker22\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\nCov1.0\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\123\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rekker22\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -51,10 +48,6 @@
               "target": "Package",
               "version": "[5.0.11, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer.Design": {
-              "target": "Package",
-              "version": "[1.1.6, )"
-            },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[5.0.11, )"
@@ -84,7 +77,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -96,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

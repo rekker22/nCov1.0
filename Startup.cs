@@ -39,7 +39,8 @@ namespace nCov1._0
                 else
                 {
                     // Use connection string provided at runtime by Heroku.
-                    var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+                    //var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+                    var connUrl = Configuration.GetConnectionString("ProdConnection");
                     // Parse connection URL to connection string for Npgsql
                     connUrl = connUrl.Replace("postgres://", string.Empty);
                     var pgUserPass = connUrl.Split("@")[0];
@@ -49,7 +50,8 @@ namespace nCov1._0
                     var pgUser = pgUserPass.Split(":")[0];
                     var pgPass = pgUserPass.Split(":")[1];
                     var pgHost = pgHostPort.Split(":")[0];
-                    var pgPort = pgHostPort.Split(":")[1];
+                    //var pgPort = pgHostPort.Split(":")[1];
+                    var pgPort = 5432;
 
                     connStr = $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb};sslmode=Require;Trust Server Certificate=true;";
                     options.UseNpgsql(connStr);
@@ -59,6 +61,8 @@ namespace nCov1._0
                 // or from the environment variable from Heroku, use it to set up your DbContext.
 
             });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,6 +74,8 @@ namespace nCov1._0
             }
             else
             {
+                
+
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();

@@ -1,4 +1,6 @@
-﻿namespace nCov1._0.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace nCov1._0.Models
 {
     public partial class NCovStateData
     {

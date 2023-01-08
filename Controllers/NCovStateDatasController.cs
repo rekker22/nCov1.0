@@ -91,12 +91,17 @@ namespace nCov1._0.Controllers
                 //await _context.SaveChangesAsync();
                 List<string> badDistrict = new List<string>() { "Unassigned", "Unknown", "Foreign Evacuees", "Other State", "Airport Quarantine" };
                 List<string> NoDistrict = new List<string>();
+
+                int countTest = 0;////just for testing
+
                 foreach (stateData item in stateDatas)
                 {
                     if (item.state != "State Unassigned")
                     {
                         foreach (Districtdata dD in item.districtData)
                         {
+                            //Console.WriteLine((countTest++).ToString() + item.state + '_'+ dD.district);
+
                             if (!badDistrict.Contains(dD.district))
                             {
 
@@ -116,8 +121,10 @@ namespace nCov1._0.Controllers
                                 }
                                 using (HttpClient client = new HttpClient())
                                 {
+                                    
                                     using (HttpResponseMessage response = await client.GetAsync(url + dsplit + "+" + ssplit + "+" + "India" + key))
                                     {
+                                        //Console.WriteLine(url + dsplit + ssplit + "India" + key);
                                         if (response.IsSuccessStatusCode)
                                         {
                                             dynamic data = JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result);
