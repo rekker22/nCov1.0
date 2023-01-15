@@ -581,3 +581,9 @@ C:\Projects\nCov1.0\bin\Debug\net6.0\runtimes\linux-s390x\native\libe_sqlite3.so
 C:\Projects\nCov1.0\bin\Debug\net6.0\runtimes\maccatalyst-arm64\native\libe_sqlite3.dylib
 C:\Projects\nCov1.0\bin\Debug\net6.0\runtimes\maccatalyst-x64\native\libe_sqlite3.dylib
 C:\Projects\nCov1.0\bin\Debug\net6.0\runtimes\osx-arm64\native\libe_sqlite3.dylib
+C:\Projects\nCov1.0\bin\Debug\net6.0\refs\Microsoft.Extensions.DependencyInjection.dll
+C:\Projects\nCov1.0\obj\Debug\net6.0\staticwebassets\msbuild.nCov1.0.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Projects\nCov1.0\obj\Debug\net6.0\staticwebassets\msbuild.build.nCov1.0.props
+C:\Projects\nCov1.0\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.nCov1.0.props
+C:\Projects\nCov1.0\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.nCov1.0.props
+C:\Projects\nCov1.0\obj\Debug\net6.0\staticwebassets.pack.json

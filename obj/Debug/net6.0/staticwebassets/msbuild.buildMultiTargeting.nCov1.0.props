@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\nCov1.0.props" />
+</Project>
