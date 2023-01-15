@@ -14,7 +14,7 @@ namespace nCov1._0.Models
 
         public virtual DbSet<NCovStateData> NCovStateData { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
@@ -46,7 +46,7 @@ namespace nCov1._0.Models
                     optionsBuilder.UseNpgsql(connStr);
                 }
             }
-        }
+        }*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
