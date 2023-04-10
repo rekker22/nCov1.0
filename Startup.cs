@@ -34,7 +34,8 @@ namespace nCov1._0
                 if (env == "Development")
                 {
                         connStr = Configuration.GetConnectionString("DefaultConnection");
-                        options.UseSqlServer(connStr);
+                        //options.UseSqlServer(connStr);
+                        options.UseNpgsql(connStr); //for migration only as it expects to be SQL and not taking update-database --connection "<production connection string>"
                 }
                 else
                 {
